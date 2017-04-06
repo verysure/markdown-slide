@@ -1,0 +1,151 @@
+// --- general styles ---
+
+html, body, p, .slide, .title, .content, h1, h2, h3, h4, h5, h6 {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.title, h1, h2, h3, h4, h5, h6 {
+    font-size: $title-font;
+    font-weight: 500;
+}
+
+.content {
+    font-size: $content-font;
+    font-weight: 200;
+}
+
+.slide {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.title, .content {
+    position: absolute;
+}
+
+.pagebreak { page-break-after: always; }
+
+// for image
+.imgouter { 
+    display: table-row; 
+    height: 100%; 
+}
+.imginner { 
+    display             : table-cell;
+    background-size     : contain;
+    background-repeat   : no-repeat;
+    background-position : center center;
+}
+
+ul, ol { list-style-position: inside; }
+
+
+
+// --- apply common styles ---
+$parameters: map-merge($default-parameters, $parameters);
+
+@each $slide-type in cover, text, section, blank, full {
+    .#{$slide-type} {
+        background-color: map-get($parameters, #{$slide-type}-background);
+
+        .title {
+            text-align: map-get($parameters, #{$slide-type}-title-align);
+            h1, h2, h3, h4, h5, h6 { 
+                text-align: map-get($parameters, #{$slide-type}-title-align);
+                font-size: map-get($parameters, #{$slide-type}-title-font);
+                color: map-get($parameters, #{$slide-type}-title-color);
+            }
+        }
+        .content {
+            text-align: map-get($parameters, #{$slide-type}-content-align);
+            font-size: map-get($parameters, #{$slide-type}-content-font);
+            color: map-get($parameters, #{$slide-type}-content-color);
+        }
+    }
+}
+
+
+
+
+
+
+// --- specific slide styles ---
+
+.cover {
+    .title, .content {
+        left     : $cover-margin;
+        right    : $cover-margin;
+    }
+
+    .title { 
+        bottom: 100% - $cover-split; 
+    }
+    .content { 
+        top: $cover-split; 
+    }
+}
+
+
+
+.text {
+    .title, .content {
+        left  : $text-margin;
+        right : $text-margin;
+    }
+
+    .title { 
+        bottom: 100% - $text-split; 
+    }
+    .content { 
+        display : table;
+        top     : $text-split;
+        height  : 100% - $text-split - $text-margin;
+        width   : 100% - 2 * $text-margin;
+    }
+}
+
+
+.section {
+    .title {
+        display : table;
+        top     : $section-margin;
+        left    : $section-margin;
+        width   : 100% - 2 * $section-margin;
+        height  : 100% - 2 * $section-margin;
+        h1, h2, h3, h4, h5, h6 {
+            display        : table-cell;
+            vertical-align : middle;
+        }
+    }
+    .content { display: none; }
+}
+
+
+
+
+.blank {
+    .title  { display: none; }
+    .content { 
+        top     : $blank-margin;
+        left    : $blank-margin;
+        height  : 100% - 2 * $blank-margin;
+        width   : 100% - 2 * $blank-margin;
+        display : table;
+    }
+} 
+
+.full {
+    .title  { display: none; }
+    .content { 
+        top     : 0%;
+        left    : 0%;
+        height  : 100%;
+        width   : 100%;
+        display : table;
+    }
+} 
+
+

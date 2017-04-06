@@ -1,0 +1,67 @@
+
+// margins
+$slide-margin   : 10%;
+$cover-margin   : $slide-margin;
+$text-margin    : $slide-margin;
+$section-margin : $slide-margin;
+$blank-margin   : $slide-margin;
+
+// font
+$title-font    : 60;
+$content-font  : 40;
+$title-color   : black;
+$content-color : #545454;
+
+// title-content split
+$cover-split : 50%;
+$text-split  : 20%;
+
+// background
+$background-color: white;
+
+
+
+// detailed parameters
+$default-parameters: (
+    // font size
+    cover-title-font   : $title-font,
+    text-title-font    : $title-font,
+    section-title-font : $title-font,
+
+    cover-content-font : $content-font,
+    text-content-font  : $content-font,
+    blank-content-font : $content-font,
+    full-content-font  : $content-font,
+
+    // font color
+    cover-title-color   : $title-color,
+    text-title-color    : $title-color,
+    section-title-color : $title-color,
+
+    cover-content-color : $content-color,
+    text-content-color  : $content-color,
+    blank-content-color : $content-color,
+    full-content-color  : $content-color,
+
+    // alignment
+    cover-title-align   : center,
+    text-title-align    : left,
+    section-title-align : center,
+
+    cover-content-align : center,
+    text-content-align  : left,
+    blank-content-align : left,
+    full-content-align  : left,
+
+    // background
+    cover-background   : $background-color,
+    text-background    : $background-color,
+    section-background : $background-color,
+    blank-background   : $background-color,
+    full-background    : $background-color,
+);
+
+$parameters: ();
+
+
+

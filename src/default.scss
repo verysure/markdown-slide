@@ -1,0 +1,192 @@
+// --- common styles ---
+
+// margins
+$slide-margin   : 10%;
+$cover-margin   : $slide-margin;
+$text-margin    : $slide-margin;
+$section-margin : $slide-margin;
+$blank-margin   : $slide-margin;
+
+// font sizes
+$title-font         : 60;
+$content-font       : 40;
+
+$cover-title-font   : $title-font;
+$cover-content-font : $content-font;
+
+$text-title-font    : $title-font;
+$text-content-font  : $content-font;
+
+$section-title-font : $title-font;
+$blank-content-font : $content-font;
+$full-content-font  : $content-font;
+
+// title-content split
+$cover-split : 50%;
+$text-split  : 20%;
+
+// alignment
+$text-title-align: left;
+
+
+
+
+
+
+
+// --- general styles ---
+html, body, p, .slide, .title, .content, h1, h2, h3, h4, h5, h6 {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.title, h1, h2, h3, h4, h5, h6 {
+    font-size: $title-font;
+    font-weight: 500;
+}
+
+.content {
+    font-size: $content-font;
+    font-weight: 200;
+}
+
+.slide {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.title, .content {
+    position: absolute;
+}
+
+.pagebreak { page-break-after: always; }
+
+// for image
+.imgouter { 
+    display: table-row; 
+    height: 100%; 
+}
+.imginner { 
+    display: table-cell; 
+    background-size: 100% 100%; 
+}
+
+ul, ol { list-style-position: inside; }
+
+
+
+
+
+// --- cover slide style ---
+
+.cover {
+    text-align: center;
+    .title, .content {
+        left     : $cover-margin;
+        right    : $cover-margin;
+    }
+
+    .title { 
+        h1, h2, h3, h4, h5, h6 { 
+            font-size: $cover-title-font;
+        }
+        bottom: 100% - $cover-split; 
+    }
+    .content { 
+        font-size: $cover-content-font;
+        top: $cover-split; 
+    }
+}
+
+
+
+
+
+
+// --- text slide style ---
+
+.text {
+    .title, .content {
+        left  : $text-margin;
+        right : $text-margin;
+    }
+
+    .title { 
+        text-align: $text-title-align;
+        bottom: 100% - $text-split; 
+        h1, h2, h3, h4, h5, h6 { 
+            font-size: $text-title-font; 
+        }
+    }
+    .content { 
+        font-size: $text-content-font;
+        display : table;
+        top     : $text-split;
+        height  : 100% - $text-split - $text-margin;
+        width   : 100% - 2 * $text-margin;
+    }
+}
+
+
+
+
+
+// --- section slide style ---
+
+// bug: does not overflow well
+.section {
+    .title {
+        h1, h2, h3, h4, h5, h6 { 
+            font-size: $section-title-font;
+        }
+        display : table;
+        top     : $section-margin;
+        left    : $section-margin;
+        width   : 100% - 2 * $section-margin;
+        height  : 100% - 2 * $section-margin;
+        h1, h2, h3, h4, h5, h6 {
+            display        : table-cell;
+            vertical-align : middle;
+            text-align     : center;
+        }
+    }
+    .content { display: none; }
+}
+
+
+
+// --- blank slide style ---
+
+.blank {
+    .title  { display: none; }
+    .content { 
+        font-size: $blank-content-font;
+        top     : $blank-margin;
+        left    : $blank-margin;
+        right   : $blank-margin;
+        height  : 100% - 2 * $blank-margin;
+        width   : 100% - 2 * $blank-margin;
+        display : table;
+    }
+} 
+
+
+// --- full slide style ---
+
+.full {
+    .title  { display: none; }
+    .content { 
+        font-size: $full-content-font;
+        top     : 0%;
+        left    : 0%;
+        right   : 0%;
+        height  : 100%;
+        width   : 100%;
+        display : table;
+    }
+} 
+
+
+
